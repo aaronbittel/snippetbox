@@ -228,3 +228,13 @@ ressources from your handlers
 - `-d, --data`: To send data. Automatically uses POST as method
 - `-X, --request`: Change the method to use when starting the transfer
 - `-L, --location`: automatically follows redirects
+
+#### Templating Actions
+- `{{define "base"}}...{{end}}`: to define a **distinct named template
+called "base"**
+- `{{template "main" .}}`: to invoke another template (called "main") at a
+particular location in the HTML
+    - the "." at the end represent any dynamic data we want to pass into
+    the invoked template
+- `{{block "sidebar" .}}...{{end}}`: acts like `{{template}}` action, execpt it
+allows to specify default content
