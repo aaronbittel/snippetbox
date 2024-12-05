@@ -23,6 +23,7 @@ type config struct {
 }
 
 type application struct {
+	users          *models.UserModel
 	snippets       *models.SnippetModel
 	logger         *slog.Logger
 	templateCache  map[string]*template.Template
@@ -65,6 +66,7 @@ func main() {
 		logger:         logger,
 		cfg:            cfg,
 		snippets:       &models.SnippetModel{DB: db},
+		users:          &models.UserModel{DB: db},
 		templateCache:  templateCache,
 		sessionManager: sessionManager,
 	}
